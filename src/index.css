@@ -1,0 +1,24 @@
+:root {
+  --color-orange: hsl(26, 100%, 55%);
+  --color-pale-orange: hsl(25, 100%, 94%);
+  --color-dark-blue: hsl(220, 13%, 13%);
+  --color-gray-blue-1: hsl(220, 14%, 75%);
+  --color-gray-blue-2: hsl(223, 64%, 98%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+input,
+button {
+  font: inherit;
+}
