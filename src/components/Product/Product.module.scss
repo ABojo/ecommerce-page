@@ -1,0 +1,110 @@
+.product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8rem;
+  align-items: center;
+
+  &__brand {
+    color: var(--color-orange);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  &__name {
+    font-size: 2.75rem;
+    color: var(--color-black);
+    margin-bottom: 2rem;
+  }
+
+  &__description {
+    color: var(--color-dark-blue);
+    line-height: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  &__price {
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    span {
+      font-size: 1rem;
+      display: block;
+      margin-left: 1rem;
+      color: var(--color-orange);
+      background-color: var(--color-pale-orange);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  &__crossed {
+    color: var(--color-gray-blue-1);
+    font-weight: 700;
+    text-decoration: line-through;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: stretch;
+    margin-top: 2rem;
+  }
+
+  &__add {
+    flex: 1;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    svg {
+      margin-right: 1rem;
+    }
+  }
+
+  &__amount {
+    background-color: var(--color-gray-blue-2);
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 2rem;
+
+    span {
+      margin: 0 3rem;
+      font-weight: 700;
+      color: var(--color-black);
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      color: var(--color-orange);
+      font-weight: 700;
+      font-size: 1.5rem;
+      transition: all 0.2s;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
