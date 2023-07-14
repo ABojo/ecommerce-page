@@ -8,10 +8,11 @@ interface ProductProps {
   description: string;
   price: number;
   discount?: number;
+  thumbnails: string[];
   images: string[];
 }
 
-export default function Product({ brand, name, description, price, discount, images }: ProductProps) {
+export default function Product({ brand, name, description, price, discount, images, thumbnails }: ProductProps) {
   const { addToCart } = useContext(CartContext);
   const currentPrice = discount ? price * (discount * 0.01) : price;
   const [quantity, setQuantity] = useState(0);
@@ -31,7 +32,7 @@ export default function Product({ brand, name, description, price, discount, ima
   }
 
   function addToCartOnClick() {
-    const newCartItem = { id: name, thumbnail: images[0], name, price: currentPrice, quantity };
+    const newCartItem = { id: name, thumbnail: thumbnails[0], name, price: currentPrice, quantity };
 
     addToCart(newCartItem);
     setQuantity(0);
