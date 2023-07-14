@@ -4,7 +4,9 @@ import styles from "./Header.module.scss";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <img className={styles.header__logo} src="images/logo.svg" alt="Sneakers Logo" />
+      <a className={styles.header__logo} href="/" aria-label="Go to home page">
+        <img src="images/logo.svg" alt="Sneakers Logo" />
+      </a>
       <nav className={styles.header__nav}>
         <ul className={styles.header__list}>
           <li className={styles.header__item}>
