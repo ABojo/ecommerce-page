@@ -1,0 +1,39 @@
+.item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: var(--color-dark-blue);
+  width: 100%;
+
+  &__thumbnail {
+    width: 3rem;
+    border-radius: 0.25rem;
+  }
+
+  &__name {
+    margin-bottom: 0.5rem;
+  }
+
+  &__price {
+    span {
+      font-weight: 700;
+    }
+  }
+
+  &__details {
+    margin-bottom: 1rem;
+  }
+
+  &__delete {
+    color: var(--color-gray-blue-1);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    align-self: center;
+
+    &:hover {
+      color: var(--color-dark-blue);
+    }
+  }
+}
