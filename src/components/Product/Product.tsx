@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import styles from "./Product.module.scss";
 import { CartContext } from "../../contexts/CartContext";
+import ImageCarousel from "../ImageCarousel/ImageCarousel";
 
 interface ProductProps {
   brand: string;
@@ -40,7 +41,7 @@ export default function Product({ brand, name, description, price, discount, ima
 
   return (
     <main className={styles.product}>
-      <div className={styles.product__images}>PICTURE</div>
+      <ImageCarousel images={images} thumbnails={thumbnails} />
       <div className={styles.product__info}>
         <span className={styles.product__brand}>{brand}</span>
         <h1 className={styles.product__name}>{name}</h1>
