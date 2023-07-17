@@ -1,6 +1,6 @@
 export default function buildImagePaths(): { images: string[]; thumbnails: string[] } {
   const basePath = "images/image-product";
-  const numberOfImages = 5;
+  const numberOfImages = 4;
 
   const images = [];
   const thumbnails = [];
