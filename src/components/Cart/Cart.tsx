@@ -4,7 +4,7 @@ import { CartContext } from "../../contexts/CartContext";
 import CartItem from "../CartItem/CartItem";
 
 export default function Cart() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, cartQuantity } = useContext(CartContext);
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleCart() {
@@ -13,6 +13,7 @@ export default function Cart() {
 
   return (
     <div className={styles.cart}>
+      {cartQuantity ? <span className={styles.cart__quantity}>{cartQuantity}</span> : null}
       <button aria-label="Open Cart" className={styles.cart__button} onClick={toggleCart}>
         <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
           <path
