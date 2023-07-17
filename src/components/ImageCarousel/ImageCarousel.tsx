@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Lightbox from "../Lightbox/Lightbox";
 import styles from "./ImageCarousel.module.scss";
 
 interface ImageCarouselProps {
@@ -8,10 +9,21 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images, thumbnails }: ImageCarouselProps) {
   const [imageIndex, setImageIndex] = useState(0);
+  const [showLightbox, setShowLightbox] = useState(false);
 
   return (
     <div className={styles.carousel}>
-      <button className={styles.carousel__main}>
+      {showLightbox ? (
+        <Lightbox
+          startIndex={imageIndex}
+          images={images}
+          thumbnails={thumbnails}
+          onClose={() => {
+            setShowLightbox(false);
+          }}
+        />
+      ) : null}
+      <button className={styles.carousel__main} onClick={() => setShowLightbox(true)}>
         <img src={images[imageIndex]} alt="Main" />
       </button>
       <div className={styles.carousel__thumbnails}>
@@ -22,6 +34,7 @@ export default function ImageCarousel({ images, thumbnails }: ImageCarouselProps
 
           return (
             <button
+              key={i}
               className={buttonClass}
               onClick={() => {
                 setImageIndex(i);
