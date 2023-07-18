@@ -1,3 +1,4 @@
+import delay from "../../utils/delay";
 import { useState, useContext } from "react";
 import styles from "./Product.module.scss";
 import { CartContext } from "../../contexts/CartContext";
@@ -16,7 +17,14 @@ interface ProductProps {
 export default function Product({ brand, name, description, price, discount, images, thumbnails }: ProductProps) {
   const { addToCart } = useContext(CartContext);
   const currentPrice = discount ? price * (discount * 0.01) : price;
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [isAdded, setIsAdded] = useState(false);
+
+  async function showAddToCartConfirmation() {
+    setIsAdded(true);
+    await delay(2000);
+    setIsAdded(false);
+  }
 
   function incrementQuantity() {
     setQuantity((prev) => prev + 1);
@@ -24,7 +32,7 @@ export default function Product({ brand, name, description, price, discount, ima
 
   function decrementQuantity() {
     setQuantity((prev) => {
-      if (prev > 0) {
+      if (prev > 1) {
         return prev - 1;
       } else {
         return prev;
@@ -36,7 +44,8 @@ export default function Product({ brand, name, description, price, discount, ima
     const newCartItem = { id: name, thumbnail: thumbnails[0], name, price: currentPrice, quantity };
 
     addToCart(newCartItem);
-    setQuantity(0);
+    setQuantity(1);
+    void showAddToCartConfirmation();
   }
 
   return (
@@ -80,6 +89,19 @@ export default function Product({ brand, name, description, price, discount, ima
             Add to cart
           </button>
         </div>
+        <span className={`${styles.product__success} ${isAdded ? styles["product__success--visible"] : ""}`}>
+          <svg
+            width="24"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+          >
+            <path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm7 7.457l-9.005 9.565-4.995-5.865.761-.649 4.271 5.016 8.24-8.752.728.685z" />
+          </svg>
+          Added to cart
+        </span>
       </div>
     </main>
   );
