@@ -26,6 +26,11 @@
     margin-bottom: 1.75rem;
   }
 
+  &__pricing {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__price {
     font-size: 2rem;
     font-weight: 700;

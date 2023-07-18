@@ -55,11 +55,13 @@ export default function Product({ brand, name, description, price, discount, ima
         <span className={styles.product__brand}>{brand}</span>
         <h1 className={styles.product__name}>{name}</h1>
         <p className={styles.product__description}>{description}</p>
-        <p className={styles.product__price}>
-          ${currentPrice.toFixed(2)}
-          {discount ? <span>{discount}%</span> : null}
-        </p>
-        {discount ? <span className={styles.product__crossed}>${price.toFixed(2)}</span> : null}
+        <div className={styles.product__pricing}>
+          <p className={styles.product__price}>
+            ${currentPrice.toFixed(2)}
+            {discount ? <span>{discount}%</span> : null}
+          </p>
+          {discount ? <span className={styles.product__crossed}>${price.toFixed(2)}</span> : null}
+        </div>
         <div className={styles.product__controls}>
           <div className={styles.product__amount}>
             <button
