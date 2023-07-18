@@ -7,6 +7,7 @@
   --color-gray-blue-2: hsl(223, 64%, 98%);
   --color-white: hsl(0, 0%, 100%);
   --color-black: hsl(0, 0%, 0%);
+  --color-delete: #f85959;
 }
 
 * {
