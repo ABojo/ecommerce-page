@@ -1,3 +1,5 @@
+@use "../../sass/breakpoints" as bp;
+
 .header {
   display: flex;
   align-items: center;
@@ -9,7 +11,9 @@
   }
 
   &__nav {
-    margin-right: auto;
+    @media (max-width: bp.$md) {
+      display: none;
+    }
   }
 
   &__list {
@@ -66,6 +70,7 @@
   &__info {
     display: flex;
     align-items: center;
+    margin-left: auto;
   }
 
   &__user {
