@@ -1,3 +1,5 @@
+@use "../../sass/breakpoints" as bp;
+
 .cart {
   position: relative;
 
@@ -8,6 +10,10 @@
     color: var(--color-gray-blue-1);
     transition: all 0.2s;
     cursor: pointer;
+
+    @media (max-width: bp.$xsm) {
+      margin-right: 2rem;
+    }
 
     &:hover {
       color: var(--color-black);
@@ -37,6 +43,7 @@
   -webkit-box-shadow: 12px 7px 44px -16px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 12px 7px 44px -16px rgba(0, 0, 0, 0.75);
   border-radius: 1rem;
+  z-index: 1;
 
   &__head {
     padding: 1.5rem;

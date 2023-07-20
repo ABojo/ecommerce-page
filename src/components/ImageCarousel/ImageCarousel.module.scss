@@ -5,6 +5,10 @@
   width: 100%;
   margin: 0rem auto;
 
+  @media (max-width: bp.$xsm) {
+    max-width: unset;
+  }
+
   &__main {
     margin-bottom: 3rem;
     cursor: pointer;
@@ -13,6 +17,10 @@
     & img {
       width: 100%;
       border-radius: 1rem;
+
+      @media (max-width: bp.$xsm) {
+        border-radius: 0;
+      }
     }
 
     @media (max-width: bp.$sm) {

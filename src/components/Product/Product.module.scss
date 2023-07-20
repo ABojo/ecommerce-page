@@ -18,6 +18,14 @@
     padding: 2rem 0;
   }
 
+  @media (max-width: bp.$xsm) {
+    padding: 0;
+
+    &__info {
+      padding: 0 2rem;
+    }
+  }
+
   &__brand {
     color: var(--color-orange);
     text-transform: uppercase;
