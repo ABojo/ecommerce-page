@@ -1,5 +1,5 @@
-import { useState } from "react";
 import styles from "./Lightbox.module.scss";
+import useCounter from "../../hooks/useCounter";
 
 interface LightboxProps {
   images: string[];
@@ -9,20 +9,7 @@ interface LightboxProps {
 }
 
 export default function Lightbox({ images, thumbnails, onClose, startIndex }: LightboxProps) {
-  const [imageIndex, setImageIndex] = useState(startIndex);
-
-  function previousImage() {
-    setImageIndex((prevIndex) => {
-      const newIndex = prevIndex - 1;
-      return newIndex > -1 ? newIndex : images.length - 1;
-    });
-  }
-  function nextImage() {
-    setImageIndex((prevIndex) => {
-      const newIndex = prevIndex + 1;
-      return newIndex < images.length ? newIndex : 0;
-    });
-  }
+  const { counter, setCounter, decrementCounter, incrementCounter } = useCounter(images.length - 1, startIndex);
 
   return (
     <div className={styles.lightbox}>
@@ -35,31 +22,31 @@ export default function Lightbox({ images, thumbnails, onClose, startIndex }: Li
             />
           </svg>
         </button>
-        <button className={styles.lightbox__main}>
-          <button className={styles.lightbox__left} onClick={previousImage}>
+        <div className={styles.lightbox__main}>
+          <button className={styles.lightbox__left} onClick={decrementCounter}>
             <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
               <path d="M11 1 3 9l8 8" stroke="currentColor" stroke-width="3" fill="none" />
             </svg>
           </button>
-          <img src={images[imageIndex]} alt="Main" />
-          <button className={styles.lightbox__right} onClick={nextImage}>
+          <img src={images[startIndex]} alt="Main" />
+          <button className={styles.lightbox__right} onClick={incrementCounter}>
             <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
               <path d="m2 1 8 8-8 8" stroke="currentColor" stroke-width="3" fill="none" />
             </svg>
           </button>
-        </button>
+        </div>
         <div className={styles.lightbox__thumbnails}>
           {thumbnails.map((thumbnail, i) => {
             let buttonClass = styles.lightbox__thumbnail;
 
-            if (i === imageIndex) buttonClass += ` ${styles["lightbox__thumbnail--active"]}`;
+            if (i === counter) buttonClass += ` ${styles["lightbox__thumbnail--active"]}`;
 
             return (
               <button
                 key={i}
                 className={buttonClass}
                 onClick={() => {
-                  setImageIndex(i);
+                  setCounter(i);
                 }}
               >
                 <img src={thumbnail} alt="Thumbnail" />
