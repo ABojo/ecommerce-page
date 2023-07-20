@@ -1,22 +1,81 @@
+@use "../../sass/breakpoints" as bp;
+
 .carousel {
   max-width: 28rem;
-  margin: 5rem auto;
+  width: 100%;
+  margin: 0rem auto;
 
   &__main {
     margin-bottom: 3rem;
-    border: none;
-    background-color: transparent;
     cursor: pointer;
+    position: relative;
 
     & img {
       width: 100%;
       border-radius: 1rem;
     }
+
+    @media (max-width: bp.$sm) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__lightbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 1rem;
+
+    @media (max-width: bp.$sm) {
+      display: none;
+    }
+  }
+
+  &__left,
+  &__right {
+    position: absolute;
+    top: 50%;
+    translate: transformY(-50%);
+    height: 3rem;
+    width: 3rem;
+    border-radius: 100%;
+    border: none;
+    background-color: var(--color-white);
+    align-items: center;
+    justify-content: center;
+    color: var(--color-black);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: none;
+
+    &:hover {
+      color: var(--color-orange);
+    }
+
+    @media (max-width: bp.$sm) {
+      display: flex;
+    }
+  }
+
+  &__left {
+    left: 1rem;
+  }
+
+  &__right {
+    right: 1rem;
   }
 
   &__thumbnails {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: bp.$sm) {
+      display: none;
+    }
   }
 
   &__thumbnail {
@@ -28,7 +87,8 @@
     border: 4px solid transparent;
 
     img {
-      width: 6rem;
+      max-width: 6rem;
+      width: 100%;
       transition: all 0.2s;
       padding: 0;
       height: 100%;
