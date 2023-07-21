@@ -28,7 +28,7 @@ export default function Lightbox({ images, thumbnails, onClose, startIndex }: Li
               <path d="M11 1 3 9l8 8" stroke="currentColor" stroke-width="3" fill="none" />
             </svg>
           </button>
-          <img src={images[startIndex]} alt="Main" />
+          <img src={images[counter]} alt="Main" />
           <button className={styles.lightbox__right} onClick={incrementCounter}>
             <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
               <path d="m2 1 8 8-8 8" stroke="currentColor" stroke-width="3" fill="none" />
