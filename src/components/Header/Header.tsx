@@ -1,9 +1,11 @@
+import MobileNav from "../MobileNav/MobileNav";
 import Cart from "../Cart/Cart";
 import styles from "./Header.module.scss";
 
 export default function Header() {
   return (
     <header className={styles.header}>
+      <MobileNav />
       <a className={styles.header__logo} href="/" aria-label="Go to home page">
         <img src="images/logo.svg" alt="Sneakers Logo" />
       </a>
