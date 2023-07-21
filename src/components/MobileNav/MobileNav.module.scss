@@ -1,0 +1,66 @@
+@use "../../sass/breakpoints" as bp;
+
+.container {
+  position: relative;
+  margin-right: 1rem;
+  display: none;
+
+  @media (max-width: bp.$md) {
+    display: block;
+  }
+}
+
+.open {
+  background-color: transparent;
+  border: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+
+  &__nav {
+    background-color: white;
+    width: 50%;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  &__close {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 2rem;
+    color: var(--color-dark-gray-blue);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--color-dark-gray-blue);
+    font-weight: 700;
+  }
+
+  &__link,
+  &__close {
+    transition: all 0.2s;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
