@@ -11,7 +11,6 @@
 
   &__main {
     margin-bottom: 3rem;
-    cursor: pointer;
     position: relative;
 
     & img {
@@ -37,6 +36,7 @@
     background-color: transparent;
     border: none;
     border-radius: 1rem;
+    cursor: pointer;
 
     @media (max-width: bp.$sm) {
       display: none;
