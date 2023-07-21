@@ -1,6 +1,6 @@
 # Eccommerce Page
 
-This is an ecommerce product page built with React and TypeScript.
+This is an ecommerce product page built with React, TypeScript, and SCSS.
 
 ## Features
 
