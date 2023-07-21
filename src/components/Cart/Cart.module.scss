@@ -69,10 +69,11 @@
   }
 
   &__close {
-    background-color: none;
+    background-color: transparent;
     border: none;
     cursor: pointer;
     transition: all 0.2s;
+    color: var(--color-dark-gray-blue);
 
     &:hover {
       color: var(--color-gray-blue-1);
